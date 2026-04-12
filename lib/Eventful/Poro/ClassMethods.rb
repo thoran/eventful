@@ -1,14 +1,27 @@
 # Eventful/Poro/ClassMethods.rb
 # Eventful::Poro::ClassMethods
 
-require_relative File.join('..', '..', 'ObjectSpace', 'self.select_objects')
-
 module Eventful
   module Poro
     module ClassMethods
 
+      def <<(instance)
+        instances << instance
+      end
+      alias_method :register, :<<
+
       def active
-        ObjectSpace.select_objects(self){|o| o.active?}
+        gc
+      end
+
+      private
+
+      def instances
+        @instances ||= []
+      end
+
+      def gc
+        instances.tap{|instances| instances.reject!{|i| !i.active?}}
       end
 
     end

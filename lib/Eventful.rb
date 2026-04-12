@@ -18,6 +18,7 @@ module Eventful
       else
         require_relative File.join('Eventful', 'Poro')
         klass.extend(Eventful::Poro::ClassMethods)
+        klass.prepend(Eventful::Poro::InstanceMethods)
       end
     end
 

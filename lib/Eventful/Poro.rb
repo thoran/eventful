@@ -2,3 +2,4 @@
 # Eventful::Poro
 
 require_relative File.join('Poro', 'ClassMethods')
+require_relative File.join('Poro', 'InstanceMethods')

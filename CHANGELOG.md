@@ -1,5 +1,24 @@
 # eventful/CHANGELOG.md
 
+## 2.0.0 (20260412): Replace using ObjectSpace with a registry for detecting active Poro objects.
+-----------------------------------------------------------------------------------------------------------------------
+
+### +
+1. Eventful::Poro::InstanceMethods: Prepended initialize hook for automatic instance registration.
+2. Eventful::Poro::ClassMethods#instances: Class-level instance registry.
+3. Eventful::Poro::ClassMethods#register: Register an instance.
+4. Eventful::Poro::ClassMethods#gc: Remove final-state instances from the registry.
+
+### -
+1. lib/ObjectSpace/self.select_objects.rb
+
+### ~
+1. Eventful::Poro::ClassMethods#active: Replace ObjectSpace with instance registry.
+2. Eventful::Poro: + require InstanceMethods.
+3. Eventful: + klass.prepend(Eventful::Poro::InstanceMethods) for Poro path.
+4. lib/Eventful/VERSION: /1.0.0/2.0.0/
+
+
 ## 1.0.0 (20260412): Declared stable.
 -----------------------------------------------------------------------------------------------------------------------
 
