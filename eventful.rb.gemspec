@@ -4,7 +4,6 @@ Gem::Specification.new do |spec|
   spec.name = 'eventful.rb'
 
   spec.version = Eventful::VERSION
-  spec.date = '2026-04-12'
 
   spec.summary = "Automatically change state with Stateful state machines."
   spec.description = "By defining predicate methods which except for the addition of '?' matches a state machine event and then configuring an in memory or cron-based event loop, the state machine will be able to change state automatically."
@@ -14,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage = 'http://github.com/thoran/eventful.rb'
   spec.license = 'Ruby'
 
-  spec.required_ruby_version = '>= 1.8.6'
+  spec.required_ruby_version = '>= 2.5'
 
   spec.add_dependency('stateful.rb')
   spec.files = [
