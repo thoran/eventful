@@ -13,7 +13,7 @@ require 'active_record'
 require 'pg'
 require 'Eventful'
 
-class CreateTableActiveRecordMachines2 < ActiveRecord::Migration
+class CreateTableActiveRecordMachines2 < ActiveRecord::Migration[6.0]
 
   def change
     create_table :active_record_machine2s do |t|
@@ -62,11 +62,11 @@ describe Eventful do
   end
 
   it "must have successfully extended the receiver class with Stateful methods" do
-    machine2.class.methods.include?(:stateful_states).must_equal true
+    _(machine2.class.methods.include?(:stateful_states)).must_equal true
   end
 
   it "must have successfully extended the receiver class with Eventful methods" do
-    machine2.class.methods.include?(:active).must_equal true
+    _(machine2.class.methods.include?(:active)).must_equal true
   end
 
   context "only an_event? is true" do
@@ -89,22 +89,22 @@ describe Eventful do
 
     it "must know which instances are active (ie. not in a final state)" do
       machine2.current_state
-      ActiveRecordMachine2.active.size.must_equal 1
+      _(ActiveRecordMachine2.active.size).must_equal 1
     end
 
     it "must know whether an event has occurred" do
-      machine2.an_event?.must_equal true
+      _(machine2.an_event?).must_equal true
     end
 
     it "must know whether an event has not occurred" do
-      machine2.another_event?.must_equal false
-      machine2.yet_another_event?.must_equal false
+      _(machine2.another_event?).must_equal false
+      _(machine2.yet_another_event?).must_equal false
     end
 
     it "must automatically trigger state changes" do
       machine2.current_state
       ActiveRecordMachine2.run
-      machine2.reload.current_state.name.must_equal :another_state
+      _(machine2.reload.current_state.name).must_equal :another_state
     end
   end
 
@@ -128,22 +128,22 @@ describe Eventful do
 
     it "must know which instances are active (ie. not in a final state)" do
       machine2.current_state
-      ActiveRecordMachine2.active.size.must_equal 1
+      _(ActiveRecordMachine2.active.size).must_equal 1
     end
 
     it "must know whether an event has occurred" do
-      machine2.an_event?.must_equal true
-      machine2.another_event?.must_equal true
+      _(machine2.an_event?).must_equal true
+      _(machine2.another_event?).must_equal true
     end
 
     it "must know whether an event has not occurred" do
-      machine2.yet_another_event?.must_equal false
+      _(machine2.yet_another_event?).must_equal false
     end
 
     it "must automatically trigger state changes" do
       machine2.current_state
       2.times{ActiveRecordMachine2.run}
-      machine2.reload.current_state.name.must_equal :yet_another_state
+      _(machine2.reload.current_state.name).must_equal :yet_another_state
     end
   end
 
@@ -170,7 +170,7 @@ describe Eventful do
       ActiveRecordMachine2.run(2, 10) # Run every 2 seconds for not more than 10 seconds.
       finish_time = Time.now
       run_time = finish_time - start_time
-      run_time.must_be_close_to 10, 0.1
+      _(run_time).must_be_close_to 10, 0.1
     end
   end
 
