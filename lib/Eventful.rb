@@ -12,7 +12,7 @@ module Eventful
   class << self
 
     def load_persistence_class_methods(klass)
-      if defined?(ActiveRecord::Base) && klass < ActiveRecord::Base
+      if Object.const_defined?(:ActiveRecord) && defined?(::ActiveRecord::Base) && klass < ::ActiveRecord::Base
         require_relative File.join('Eventful', 'ActiveRecord')
         klass.extend(Eventful::ActiveRecord::ClassMethods)
       else

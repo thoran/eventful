@@ -61,7 +61,7 @@ describe Eventful do
   end
 
   it "must have successfully extended the receiver class with Stateful methods" do
-    _(machine.class.methods.include?(:stateful_states)).must_equal true
+    _(machine.class.methods.include?(:stateful_state_machine)).must_equal true
   end
 
   it "must have successfully extended the receiver class with Eventful methods" do

@@ -1,5 +1,25 @@
 # eventful/CHANGELOG.md
 
+## 2.1.0 (20260413): Add mRuby support.
+-----------------------------------------------------------------------------------------------------------------------
+
+### +
+1. mruby/stub_requires.rb
+2. mruby/smoke_tests.rb
+3. mruby/test_mruby-eventful
+4. mrbgem.rake
+
+### ~
+1. lib/Eventful.rb: + Object.const_defined?(:ActiveRecord) for mRuby compatibility. In mRuby defined?() raises NameError instead of returning nil as with CRuby.
+2. lib/Eventful/ActiveRecord/ClassMethods.rb: /stateful_states/stateful_state_machine/ (compatibility with stateful.rb 2.x).
+3. test/Poro.rb: /stateful_states/stateful_state_machine/ (This was broken in 2.0.0.)
+4. test/ActiveRecord.rb: /stateful_states/stateful_state_machine/ (This was broken in 2.0.0.)
+5. test/ActiveRecordWhenNoFinalState.rb: /stateful_states/stateful_state_machine/ (This was broken in 2.0.0.)
+6. eventful.rb.gemspec: ~ summary, description, homepage; /Ruby/MIT/ license; + dependencies=, development_dependencies= helpers; + CHANGELOG.md to files; + development deps (activerecord, sqlite3).
+7. Gemfile: Use gemspec.
+8. lib/Eventful/VERSION: /2.0.0/2.1.0/
+
+
 ## 2.0.0 (20260412): Replace using ObjectSpace with a registry for detecting active Poro objects.
 -----------------------------------------------------------------------------------------------------------------------
 
