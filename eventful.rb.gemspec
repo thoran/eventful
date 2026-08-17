@@ -22,18 +22,17 @@ Gem::Specification.new do |spec|
   spec.homepage = 'http://github.com/thoran/eventful'
   spec.license = 'MIT'
 
-  # The required version of Ruby is this higher than it strictly needs to be solely because the migrations have been made to require AR 6.0, but otherwise this should work with much lower versions of Ruby and ActiveRecord, even down to 2.3 (or lower) and AR 3 (or lower).
   spec.required_ruby_version = '>= 2.5'
-
   spec.require_paths = ['lib']
 
   spec.files = [
-    'eventful.rb.gemspec',
-    'CHANGELOG.md',
-    'Gemfile',
-    'README.md',
+    Dir['test/**/*.rb'],
     Dir['lib/**/*.rb'],
-    Dir['test/**/*.rb']
+    'CHANGELOG.md',
+    'eventful.rb.gemspec',
+    'Gemfile',
+    'LICENSE.txt',
+    'README.md',
   ].flatten
 
   spec.dependencies = %w{stateful.rb}

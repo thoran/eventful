@@ -1,6 +1,6 @@
-# eventful.rb
+# eventful
 
-Automatically change state with Stateful state machines.
+Automatically change state with stateful.rb state machines.
 
 ## Installation
 
@@ -68,7 +68,7 @@ machine.current_state.name
 
 ## Contributing
 
-1. Fork it (https://github.com/thoran/eventful.rb/fork)
+1. Fork it (https://github.com/thoran/eventful/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -76,4 +76,4 @@ machine.current_state.name
 
 ## License
 
-The gem is available as open source under the terms of the [Ruby License](https://opensource.org/licenses/MIT).
+MIT

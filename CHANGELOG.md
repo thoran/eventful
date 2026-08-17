@@ -1,5 +1,17 @@
 # eventful/CHANGELOG.md
 
+## 2.1.1 (20260817): Populate .gitignore, + LICENSE.txt, include LICENSE.txt in the gemspec, and correct the README.
+-----------------------------------------------------------------------------------------------------------------------
+
+### +
+1. LICENSE.txt: The MIT text, as switches and moby carry it, the gemspec having declared MIT with no file to point at. Copyright 2014-2026, the repository's own span.
+
+### ~
+1. .gitignore: 44 lines, covering gem builds, bundler, RDoc and YARD output, .DS_Store, editor files, the Ruby version managers, test artefacts and .claude. The file existed and was empty, which git-boot created it as until 0.16.0 and nothing had since filled in.
+2. README.md: /eventful.rb/eventful/ in the title and the fork URL, the repository having been renamed.
+3. README.md: /Stateful/stateful.rb/, naming the dependency as it is published.
+4. README.md: The licence is stated as MIT, which is what the gemspec declares. It had read "the Ruby License" while linking to the MIT text.
+
 ## 2.1.0 (20260413): Add mRuby support.
 -----------------------------------------------------------------------------------------------------------------------
 
